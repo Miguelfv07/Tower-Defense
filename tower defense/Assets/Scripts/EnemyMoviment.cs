@@ -23,11 +23,21 @@ public class EnemyMoviment : MonoBehaviour
         {
             pathIndex++;
 
-            if(pathIndex == LevelManager.instance.path.Length)
+            if (pathIndex == LevelManager.instance.path.Length)
             {
                 Destroy(gameObject);
                 return;
             }
+            else
+            {
+                target = LevelManager.instance.path[pathIndex];
+            }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
+        rb.velocity = direction * moveSpeed;
     }
 }
