@@ -10,6 +10,11 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
+    }
+
     private void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
