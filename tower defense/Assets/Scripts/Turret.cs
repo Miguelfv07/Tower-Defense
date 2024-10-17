@@ -6,6 +6,7 @@ using UnityEditor;
 public class Turret : MonoBehaviour
 {
     [SerializeField] private Transform turretRotationPoint;
+    [SerializeField] private LayerMask enemyMask;
 
     [SerializeField] private float targetingRange = 5f; //tamanho do espaço onde a torreta alcança
 
@@ -17,6 +18,11 @@ public class Turret : MonoBehaviour
         {
             FindTarget();
         }
+    }
+
+    private void FindTarget()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2) transform.position, 0f, enemyMask);
     }
 
     private void OnDrawGizmosSelected()
