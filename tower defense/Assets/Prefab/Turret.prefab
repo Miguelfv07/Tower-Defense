@@ -50,8 +50,11 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  bulletPrefab: {fileID: 2404055137614586700, guid: ada89632f77fd974699bc8beacecf540, type: 3}
+  firingPoint: {fileID: 1811121500448935981}
   targetingRange: 5
   rotationSpeed: 200
+  bps: 1
 --- !u!1 &3665577518576579223
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +85,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1359019369940622137}
+  - {fileID: 1811121500448935981}
   m_Father: {fileID: 6497692082297922536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5072683767249348563
@@ -109,13 +113,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5072683767249348563}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.455, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7023753, w: 0.7118069}
+  m_LocalPosition: {x: 0.31, y: -0.03, z: 0}
   m_LocalScale: {x: 0.24164902, y: 0.4725, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3640741051956127840}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.236}
 --- !u!212 &5546861776086542358
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -252,3 +256,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6861758272114061447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811121500448935981}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1811121500448935981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861758272114061447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.924, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3640741051956127840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

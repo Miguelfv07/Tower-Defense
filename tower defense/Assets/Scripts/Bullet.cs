@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float bulletSpeed = 5;
 
@@ -21,5 +21,10 @@ public class Bullet : MonoBehaviour
         Vector2 direction = (target.position - transform.position).normalized;
 
         rb.velocity = direction * bulletSpeed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }
