@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!target) return;
         Vector2 direction = (target.position - transform.position).normalized;
 
         rb.velocity = direction * bulletSpeed;
