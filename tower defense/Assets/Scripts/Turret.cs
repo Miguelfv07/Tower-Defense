@@ -40,9 +40,15 @@ public class Turret : MonoBehaviour
             if(timeUntilFire >= 1/bps)
             {
                 Shoot();
+                timeUntilFire = 0;
             }
         }
 
+    }
+
+    private void Shoot()
+    {
+        Debug.Log("Shoot");
     }
 
     private void FindTarget()
