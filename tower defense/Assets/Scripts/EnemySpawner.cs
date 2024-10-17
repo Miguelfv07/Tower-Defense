@@ -26,10 +26,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartWave();
+        StartCoroutine(StartWave());
     }
-    private void StartWave()
+    private IEnumerator StartWave()
     {
+        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
     }
@@ -57,7 +58,21 @@ public class EnemySpawner : MonoBehaviour
             enemiesAlive++;
             timeSinceLastSpawn = 0;
         }
+
+        if(enemiesAlive == 0 && enemiesLeftToSpawn== 0)
+        {
+            EndWave();
+        }
+
     
+    }
+
+    private void EndWave()
+    {
+        isSpawning = false;
+        timeSinceLastSpawn = 0;
+        currenteWave++;
+        StartCoroutine(StartWave());
     }
 
     private void SpawnEnemy()
