@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5;
     [SerializeField] private float difficultyscalingFactor = 0.75f;
+
+    public static UnityEvent onEnemyDestroy;
 
     private int currenteWave = 1;
     private float timeSinceLastSpawn;
