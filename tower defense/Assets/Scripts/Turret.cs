@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
 
     [SerializeField] private float targetingRange = 5f; //tamanho do espaço onde a torreta alcança
+    [SerializeField] private float rotationSpeed = 5;
 
     private Transform target;
 
@@ -20,8 +21,14 @@ public class Turret : MonoBehaviour
             FindTarget();
             return;
         }
+     
 
         RotateTowardsTarget();
+
+       if( !CheckTargetIsInRange())
+        {
+            target = null;
+        }
 
     }
 
@@ -34,13 +41,18 @@ public class Turret : MonoBehaviour
         }
     }
 
+    private bool CheckTargetIsInRange()
+    {
+        return Vector2.Distance(target.position, transform.position) <= targetingRange;
+    }
+
     private void RotateTowardsTarget()
     {
-        float angle = MathF.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg;
+        float angle = MathF.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        transform.rotation = targetRotation;
+        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation,rotationSpeed* Time.deltaTime);
     }
 
 
