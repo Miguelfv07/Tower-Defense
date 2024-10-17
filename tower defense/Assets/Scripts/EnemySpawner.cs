@@ -13,4 +13,9 @@ public class EnemySpawner : MonoBehaviour
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
+
+    private void Start()
+    {
+        enemiesLeftToSpawn = baseEnemies;
+    }
 }
