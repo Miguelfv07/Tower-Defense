@@ -9,4 +9,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float bulletSpeed = 5;
 
     private Transform target;
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
+
+        rb.velocity = direction * bulletSpeed;
+    }
 }
