@@ -11,13 +11,18 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5;
     [SerializeField] private float difficultyscalingFactor = 0.75f;
 
-    public static UnityEvent onEnemyDestroy;
+    public static UnityEvent onEnemyDestroy = new UnityEvent();
 
     private int currenteWave = 1;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+
+    private void Awake()
+    {
+        onEnemyDestroy.AddListener(EnemyDestroyed);
+    }
 
     private void Start()
     {
@@ -32,6 +37,11 @@ public class EnemySpawner : MonoBehaviour
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currenteWave, difficultyscalingFactor));
+    }
+
+    private void EnemyDestroyed()
+    {
+        enemiesAlive--;
     }
 
     private void Update()
