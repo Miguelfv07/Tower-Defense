@@ -7,7 +7,17 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private Transform turretRotationPoint;
 
-    [SerializeField] private float targetingRange = 5f;
+    [SerializeField] private float targetingRange = 5f; //tamanho do espaço onde a torreta alcança
+
+    private Transform target;
+
+    private void Update()
+    {
+        if (target == null)
+        {
+            FindTarget();
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
