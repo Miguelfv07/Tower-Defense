@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemySpawner : MonoBehaviour
+{
+    [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private int baseEnemies = 8;
+    [SerializeField] private float enemiesPerSecond = 0.5f;
+    [SerializeField] private float timeBetweenWaves = 5;
+
+    private int currenteWave = 1;
+    private float timeSinceLastSpawn;
+    private int enemiesAlive;
+    private int enemiesLeftToSpawn;
+}
