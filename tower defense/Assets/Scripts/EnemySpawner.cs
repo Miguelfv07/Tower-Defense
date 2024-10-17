@@ -26,4 +26,17 @@ public class EnemySpawner : MonoBehaviour
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currenteWave, difficultyscalingFactor));
     }
+
+    private void Update()
+    {
+        if(!isSpawning) return;
+
+        timeSinceLastSpawn += Time.deltaTime; 
+
+        if(timeSinceLastSpawn >= (1 / enemiesPerSecond))
+        {
+            Debug.Log("Spawn Enemy");
+        }
+    
+    }
 }
