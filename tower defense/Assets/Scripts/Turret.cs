@@ -33,6 +33,15 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+
+            if(timeUntilFire >= 1/bps)
+            {
+                Shoot();
+            }
+        }
 
     }
 
