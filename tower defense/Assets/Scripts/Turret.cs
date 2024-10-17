@@ -8,11 +8,15 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
 
     [SerializeField] private float targetingRange = 5f; //tamanho do espaço onde a torreta alcança
     [SerializeField] private float rotationSpeed = 5;
+    [SerializeField] private float bps = 1;// bullets por segundo
 
     private Transform target;
+    private float timeUntilFire;
 
     private void Update()
     {
