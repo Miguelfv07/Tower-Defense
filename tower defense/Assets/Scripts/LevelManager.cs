@@ -20,4 +20,9 @@ public static LevelManager instance;
     {
         currency = 100;
     }
+
+    public void IncreaseCurrency(int amount)
+    {
+        currency += amount;
+    }
 }
