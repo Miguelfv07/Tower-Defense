@@ -13,4 +13,9 @@ public static BuildManager instance;
     {
         instance = this;
     }
+
+    public GameObject GetSelectedTower()
+    {
+        return towerPrefabs[selectedTower];
+    }
 }
