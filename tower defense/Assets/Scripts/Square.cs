@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ploat : MonoBehaviour
+public class Square : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
@@ -22,5 +22,13 @@ public class Ploat : MonoBehaviour
     private void OnMouseExit()
     {
         sr.color = startColor;
+    }
+
+    private void OnMouseDown()
+    {
+        if (tower != null) return;
+
+        GameObject towerToBuild = BuildManager.instance.GetSelectedTower();
+        tower = Instantiate(towerToBuild,transform.position, Quaternion.identity);
     }
 }
