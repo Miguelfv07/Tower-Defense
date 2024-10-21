@@ -5,5 +5,17 @@ using UnityEngine;
 public class Ploat : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Color hoverColor;
     private GameObject tower;
+
+    private Color startColor;
+
+    private void Start()
+    {
+        startColor = sr.color;
+    }
+    private void OnMouseEnter()
+    {
+        sr.color = hoverColor
+    }
 }
