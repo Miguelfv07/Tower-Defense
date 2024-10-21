@@ -16,6 +16,11 @@ public class Ploat : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        sr.color = hoverColor
+        sr.color = hoverColor;
+    }
+
+    private void OnMouseExit()
+    {
+        sr.color = startColor;
     }
 }
