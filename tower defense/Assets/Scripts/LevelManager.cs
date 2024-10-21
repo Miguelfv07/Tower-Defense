@@ -25,4 +25,21 @@ public static LevelManager instance;
     {
         currency += amount;
     }
+
+    public bool SpendCurrency(int amount)
+    {
+        if (amount <= currency)
+        {
+            currency -= amount;
+            return true;
+        }
+        else
+        {
+            Debug.Log("You do not have enought to purchase this item");
+            return false;
+        {
+
+            }
+        }
+    }
 }
