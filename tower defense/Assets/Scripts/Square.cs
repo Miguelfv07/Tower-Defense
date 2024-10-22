@@ -29,6 +29,14 @@ public class Square : MonoBehaviour
         if (tower != null) return;
 
         Tower towerToBuild = BuildManager.instance.GetSelectedTower();
+
+        if (towerToBuild.cost > LevelManager.instance.currency)
+        {
+            Debug.Log("Deu certo");
+            return;
+        }
+
+        LevelManager.instance.SpendCurrency(towerToBuild.cost);
         tower = Instantiate(towerToBuild.prefab,transform.position, Quaternion.identity);
     }
 }
