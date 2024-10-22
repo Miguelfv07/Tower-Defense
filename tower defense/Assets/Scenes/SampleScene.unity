@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 461286350}
   - component: {fileID: 461286352}
   - component: {fileID: 461286351}
+  - component: {fileID: 461286353}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -819,6 +820,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461286349}
   m_CullTransparentMesh: 1
+--- !u!114 &461286353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461286349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ffc46ef34cefe4187c62c2d6727e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyUI: {fileID: 696317236}
 --- !u!1001 &466953577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5277,9 +5291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808eceb377ff6a949823b675e35e707f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefabs:
-  - {fileID: 370859218414198921, guid: 2943e76763d1add449fbeffc11c65900, type: 3}
-  - {fileID: 370859218414198921, guid: 4e7d18f2fa7a9fd48ad8b9385fc216ec, type: 3}
+  towers:
+  - name: Basic Turret
+    cost: 100
+    prefab: {fileID: 370859218414198921, guid: 2943e76763d1add449fbeffc11c65900, type: 3}
+  - name: Test Turret
+    cost: 150
+    prefab: {fileID: 370859218414198921, guid: 4e7d18f2fa7a9fd48ad8b9385fc216ec, type: 3}
 --- !u!1001 &1943803100
 PrefabInstance:
   m_ObjectHideFlags: 0
