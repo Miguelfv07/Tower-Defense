@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnemy 
+public class EnemyBase : IEnemy
 {
-    public void Saude();
+    public virtual void Saude()
+    {
 
+
+    }
 }
