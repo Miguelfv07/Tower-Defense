@@ -7,12 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] public int hitPoints = 2 ;
     [SerializeField] private int currencyWorth = 50;
     private bool isDestroyed = false;
-    public static Health instance;
 
-    private void Awake()
-    {
-        instance = this;
-    }
 
 
 

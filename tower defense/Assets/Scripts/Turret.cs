@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, ITorre
 {
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
@@ -43,6 +43,11 @@ public class Turret : MonoBehaviour
                 timeUntilFire = 0;
             }
         }
+
+    }
+
+    public void Atirar()
+    {
 
     }
 

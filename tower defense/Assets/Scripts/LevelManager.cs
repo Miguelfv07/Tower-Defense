@@ -35,7 +35,7 @@ public static LevelManager instance;
         }
         else
         {
-            Debug.Log("You do not have enought to purchase this item");
+            Debug.Log("Não tem dinheiro");
             return false;
         {
 
