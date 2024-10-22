@@ -28,7 +28,7 @@ public class Square : MonoBehaviour
     {
         if (tower != null) return;
 
-        GameObject towerToBuild = BuildManager.instance.GetSelectedTower();
-        tower = Instantiate(towerToBuild,transform.position, Quaternion.identity);
+        Tower towerToBuild = BuildManager.instance.GetSelectedTower();
+        tower = Instantiate(towerToBuild.prefab,transform.position, Quaternion.identity);
     }
 }
