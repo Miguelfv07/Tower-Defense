@@ -13,7 +13,7 @@ public class Turret : MonoBehaviour, ITorre
 
     [SerializeField] private float targetingRange = 5f; //tamanho do espaço onde a torreta alcança
     [SerializeField] private float rotationSpeed = 5;
-    [SerializeField] private float bps = 1;// bullets por segundo
+    [SerializeField] public float bps;// bullets por segundo
 
     private Transform target;
     private float timeUntilFire;
@@ -46,7 +46,7 @@ public class Turret : MonoBehaviour, ITorre
 
     }
 
-    public void Atirar()
+    public virtual void Atirar()
     {
 
     }
@@ -56,6 +56,7 @@ public class Turret : MonoBehaviour, ITorre
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+        Atirar();
     }
 
     private void FindTarget()
