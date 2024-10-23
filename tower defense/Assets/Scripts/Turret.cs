@@ -56,6 +56,7 @@ public class Turret : MonoBehaviour, ITorre
 
      public virtual void FindTarget()
     {
+
     }
 
     private bool CheckTargetIsInRange()
