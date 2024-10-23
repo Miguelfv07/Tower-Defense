@@ -49,12 +49,12 @@ MonoBehaviour:
   turretRotationPoint: {fileID: 3640741051956127840}
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   bulletPrefab: {fileID: 2404055137614586700, guid: ada89632f77fd974699bc8beacecf540, type: 3}
   firingPoint: {fileID: 1811121500448935981}
   targetingRange: 5
-  rotationSpeed: 5
-  bps: 0
+  rotationSpeed: 1000
+  bps: 1
 --- !u!1 &3665577518576579223
 GameObject:
   m_ObjectHideFlags: 0

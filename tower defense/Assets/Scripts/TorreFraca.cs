@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TorreFraca : Turret
 {
-    public override void Atirar()
+    public override void FindTarget()
     {
-        bps = 0.5f;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
+        if (hits.Length > 0)
+        {
+            target = hits[0].transform;
+        }
     }
 }

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface ITorre 
 {
-    public void Atirar();
+    public void FindTarget();
 
 }
