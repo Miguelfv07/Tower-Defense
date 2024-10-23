@@ -18,7 +18,7 @@ public static LevelManager instance;
 
     private void Start()
     {
-        currency = 100;
+        currency = 250;
     }
 
     public void IncreaseCurrency(int amount)
