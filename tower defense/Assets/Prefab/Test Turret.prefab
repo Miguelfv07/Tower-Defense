@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6497692082297922536}
-  - component: {fileID: 6936478901846582246}
+  - component: {fileID: -9139145847916914302}
   m_Layer: 0
   m_Name: Test Turret
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 3640741051956127840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6936478901846582246
+--- !u!114 &-9139145847916914302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 370859218414198921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b289470bdf0878b4592ea8adc9d3a4f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e32159742f9de446874b80005d93b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turretRotationPoint: {fileID: 3640741051956127840}
@@ -52,8 +52,8 @@ MonoBehaviour:
     m_Bits: 64
   bulletPrefab: {fileID: 2404055137614586700, guid: ada89632f77fd974699bc8beacecf540, type: 3}
   firingPoint: {fileID: 1811121500448935981}
-  targetingRange: 10
-  rotationSpeed: 200
+  targetingRange: 5
+  rotationSpeed: 1000
   bps: 2
 --- !u!1 &3665577518576579223
 GameObject:

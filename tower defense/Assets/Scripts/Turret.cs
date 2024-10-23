@@ -6,7 +6,7 @@ using System;
 
 public class Turret : MonoBehaviour, ITorre
 {
-    [SerializeField] private Transform turretRotationPoint;
+    [SerializeField] protected Transform turretRotationPoint;
     [SerializeField] public LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
@@ -18,13 +18,11 @@ public class Turret : MonoBehaviour, ITorre
     protected Transform target;
     private float timeUntilFire;
 
-    private void Update()
+    public virtual void Update()
     {
-        if (target == null)
-        {
-            FindTarget();
-            return;
-        }
+       
+    
+        
      
 
         RotateTowardsTarget();
@@ -58,7 +56,6 @@ public class Turret : MonoBehaviour, ITorre
 
      public virtual void FindTarget()
     {
-       
     }
 
     private bool CheckTargetIsInRange()
