@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Classe LevelManager gerencia uma parte do caminho dos inimigos, ponto de spawn inicial e a moeda do jogador.
+
 public class LevelManager : MonoBehaviour
 {
     // Singleton: Permite acesso global à única instância de LevelManager
