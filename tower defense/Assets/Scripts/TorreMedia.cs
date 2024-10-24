@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// A classe "TorreMedia" é uma especialização da classe "Turret".
+// Ela busca constantemente o inimigo mais próximo para atacar.
 public class TorreMedia : Turret
 {
 
+    // Sobrescreve o método Update para buscar um alvo em cada quadro antes de executar o comportamento padrão.
     public override void Update()
     {
         FindTarget();
@@ -12,6 +15,8 @@ public class TorreMedia : Turret
         base.Update();
     }
 
+
+    // Implementa a lógica para encontrar o inimigo mais próximo da torre.
     public override void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
