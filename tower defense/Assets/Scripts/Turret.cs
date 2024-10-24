@@ -6,23 +6,28 @@ using System;
 
 public class Turret : MonoBehaviour, ITorre
 {
+    // Ponto de rotação da torreta (para girar em direção ao inimigo)
     [SerializeField] protected Transform turretRotationPoint;
+    // Máscara de detecção de inimigos (define quais objetos são reconhecidos como inimigos)
     [SerializeField] public LayerMask enemyMask;
+    // Prefab do projétil que a torreta dispara
     [SerializeField] private GameObject bulletPrefab;
+    // Ponto de disparo de onde os projéteis são criados
     [SerializeField] private Transform firingPoint;
 
-    [SerializeField] public float targetingRange = 5f; //tamanho do espaço onde a torreta alcança
-    [SerializeField] private float rotationSpeed = 5;
-    [SerializeField] public float bps;// bullets por segundo
+    [SerializeField] public float targetingRange = 5f; //Alcance da torreta para detectar alvos
+    [SerializeField] private float rotationSpeed = 5;  // Velocidade de rotação da torreta ao seguir um alvo
+    [SerializeField] public float bps; // Taxa de disparo (balas por segundo)
 
+    // Referência ao inimigo que está sendo mirado
     protected Transform target;
+    // Tempo até a torreta disparar novamente
     private float timeUntilFire;
 
+
+    // Atualiza a cada frame e controla a rotação, mira e disparo da torreta
     public virtual void Update()
     {
-       
-    
-        
      
 
         RotateTowardsTarget();
@@ -44,8 +49,8 @@ public class Turret : MonoBehaviour, ITorre
 
     }
 
-  
 
+    // Instancia uma bala e define seu alvo
     private void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
@@ -54,16 +59,21 @@ public class Turret : MonoBehaviour, ITorre
         
     }
 
-     public virtual void FindTarget()
+    // Metodo que é sobrescrito para personalizar a lógica de busca de alvos
+    public virtual void FindTarget()
     {
 
     }
 
+
+    // Verifica se o alvo atual está dentro do alcance da torreta
     private bool CheckTargetIsInRange()
     {
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
+
+    // Gira a torreta para apontar na direção do inimigo
     private void RotateTowardsTarget()
     {
         float angle = MathF.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
@@ -75,6 +85,7 @@ public class Turret : MonoBehaviour, ITorre
 
 
 
+    // Desenha um círculo no editor que representa o alcance da torreta
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
