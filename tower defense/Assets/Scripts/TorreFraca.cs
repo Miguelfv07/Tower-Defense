@@ -4,8 +4,12 @@ using UnityEditor.Build;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+
+// Classe "TorreFraca" herda de "Turret" e representa uma torre especializada com comportamento personalizado.
 public class TorreFraca : Turret
 {
+
+    //Verifica se há um alvo.Caso contrário, tenta encontrar um novo.Se já há alvo, continua com o comportamento herdado da classe pai.
     public override void Update()
     {
         if (target == null)
@@ -17,6 +21,8 @@ public class TorreFraca : Turret
         base.Update();
     }
 
+
+    //Realiza um CircleCastAll para encontrar inimigos próximos e define o primeiro inimigo encontrado como alvo.
     public override void FindTarget()
     {
 

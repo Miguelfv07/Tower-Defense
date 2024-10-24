@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
+
+// Controla o comportamento de uma torreta no jogo, incluindo mira, disparo e rotação em direção aos inimigos.Serve como Classe Base das torretas.
 public class Turret : MonoBehaviour, ITorre
 {
     // Ponto de rotação da torreta (para girar em direção ao inimigo)
