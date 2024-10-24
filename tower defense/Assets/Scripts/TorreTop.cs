@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// A classe "TorreTop" é uma especialização da torre que busca sempre o inimigo mais distante dentro de seu alcance.
 public class TorreTop : Turret
 {
+
+    // A cada quadro, busca um alvo e executa o comportamento herdado da classe "Turret".
     public override void Update()
     {
         FindTarget();
 
         base.Update();
     }
+
+    // Implementa a lógica para encontrar o inimigo mais distante.
     public override void FindTarget()
     {
         if (target == null)
