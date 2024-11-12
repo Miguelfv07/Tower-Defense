@@ -12,12 +12,20 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public string rewardedAndroid = "Rewarded_Android";
     public float relogio;
     public bool registro;
+    public float relogio2;
 
     private void Update()
     {
+        relogio2 += Time.deltaTime;
         relogio += Time.deltaTime;
         Contagem();
+
+        if (relogio2 >= 6)
+        {
+            Insterstitial();
+        }
     }
+
 
     private void Start()
     {
@@ -49,6 +57,18 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             Advertisement.Banner.Show(bannerAndroid);
     }
 
+    public void Insterstitial()
+    {
+        if(EnemySpawner.instance.enemiesAlive == 0)
+        {
+            Advertisement.Show(interstitialAndroid, this);
+            relogio = 0;
+            relogio2 = 0;
+            Time.timeScale = 0;
+            Advertisement.Banner.Hide();
+        }
+    }
+
     public void OnInitializationComplete()
     {
         
@@ -66,7 +86,22 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        
+        Advertisement.Banner.Show(bannerAndroid);
+        if (placementId == interstitialAndroid)
+
+        {
+
+            if (showCompletionState == UnityAdsShowCompletionState.COMPLETED || showCompletionState == UnityAdsShowCompletionState.SKIPPED)
+
+            {
+                Time.timeScale = 1;
+
+            }
+
+  
+
+        }
+
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)

@@ -19,14 +19,19 @@ public class EnemySpawner : MonoBehaviour
 
     private int currenteWave = 1;// Onda atual de inimigos
     private float timeSinceLastSpawn;// Tempo desde o último inimigo gerado
-    private int enemiesAlive;// Número de inimigos atualmente vivos
+    public int enemiesAlive;// Número de inimigos atualmente vivos
     private int enemiesLeftToSpawn;// Número de inimigos restantes para spawnar
-    private bool isSpawning = false;// Indica se os inimigos estão sendo gerados
+    private bool isSpawning = false;// Indica se os inimigos estão sendo gerados]
+
+    public static EnemySpawner instance;
+
+    
 
     //Configura o evento para monitorar a destruição de inimigos.
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
+        instance = this;
     }
 
     //Inicia a primeira onda de inimigos.
