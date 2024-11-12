@@ -5,6 +5,11 @@ using UnityEngine.Advertisements;
 
 public class Advertisement : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsShowListener
 {
+
+    public string id = "5729647";
+    public string bannerAndroid = "Banner_Android";
+    public string interstitialAndroid = "Interstitial_Android";
+    public string rewardedAndroid = "Rewarded_Android";
     public void OnInitializationComplete()
     {
         
