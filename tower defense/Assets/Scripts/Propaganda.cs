@@ -11,13 +11,17 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public string interstitialAndroid = "Interstitial_Android";
     public string rewardedAndroid = "Rewarded_Android";
 
-  
-        public void Banner()
-        {
+    private void Start()
+    {
+        Banner();
+    }
+
+    public void Banner()
+    {
             Advertisement.Initialize(id, true, this);
             Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
             Advertisement.Banner.Show(bannerAndroid);
-        }
+    }
 
     public void OnInitializationComplete()
     {
