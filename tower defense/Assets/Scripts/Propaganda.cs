@@ -8,11 +8,14 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public string id = "5729647";
     public string bannerAndroid = "Banner_Android";
-    public string interstitialAndroid = "Interstitial_Android";
+    public string interstitialPulavel = "Interstitial_Android";
+    public string intertitial = "Intertitital_pulavel";
     public string rewardedAndroid = "Rewarded_Android";
     public float relogio;
     public bool registro;
     public float relogio2;
+    public bool controladorInt;
+    public bool podePular;
 
     private void Update()
     {
@@ -59,13 +62,28 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void Insterstitial()
     {
+        
         if(EnemySpawner.instance.enemiesAlive == 0)
         {
-            Advertisement.Show(interstitialAndroid, this);
-            relogio = 0;
-            relogio2 = 0;
-            Time.timeScale = 0;
-            Advertisement.Banner.Hide();
+            if (podePular)
+            {
+
+                Advertisement.Show(interstitialPulavel, this);
+                relogio = 0;
+                relogio2 = 0;
+                Time.timeScale = 0;
+                Advertisement.Banner.Hide();
+               
+            }
+            else
+            {
+                Advertisement.Show(intertitial, this);
+                relogio = 0;
+                relogio2 = 0;
+                Time.timeScale = 0;
+                Advertisement.Banner.Hide();
+                
+            }
         }
     }
 
@@ -87,7 +105,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         Advertisement.Banner.Show(bannerAndroid);
-        if (placementId == interstitialAndroid)
+        if (placementId == interstitialPulavel)
 
         {
 
