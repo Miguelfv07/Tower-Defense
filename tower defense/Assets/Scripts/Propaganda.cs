@@ -17,9 +17,16 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public float relogio2;
     public bool controladorInt;
     public bool podePular;
+    public static Propaganda instance;
+   
 
     public delegate void valoresJogador(int valor);
     public valoresJogador valores;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {

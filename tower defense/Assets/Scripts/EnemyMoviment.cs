@@ -12,6 +12,8 @@ public class EnemyMoviment : MonoBehaviour
     // Velocidade de movimento do inimigo
     [SerializeField] private float moveSpeed = 2;
 
+    int contagemMorte = 0;
+
     // Transform do próximo alvo que o inimigo deve seguir
     private Transform target;
 
@@ -36,12 +38,19 @@ public class EnemyMoviment : MonoBehaviour
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
+                contagemMorte++;
+
                 return;
             }
             else
             {
                 target = LevelManager.instance.path[pathIndex];
             }
+        }
+
+        if(contagemMorte >= 10)
+        {
+            //GameOver();
         }
     }
 

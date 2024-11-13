@@ -53,4 +53,11 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        Propaganda.instance.relogio = 0;
+        Propaganda.instance.relogio2 = 0;
+    }
 }
