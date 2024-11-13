@@ -36,9 +36,10 @@ public class EnemyMoviment : MonoBehaviour
 
             if (pathIndex == LevelManager.instance.path.Length)
             {
+             
                 EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
-                contagemMorte++;
+                
 
                 return;
             }
@@ -48,9 +49,9 @@ public class EnemyMoviment : MonoBehaviour
             }
         }
 
-        if(contagemMorte >= 10)
+        if(LevelManager.instance.contagemMorte >= 10)
         {
-            //GameOver();
+           LevelManager.instance.GameOver();
         }
     }
 
@@ -59,5 +60,13 @@ public class EnemyMoviment : MonoBehaviour
     {
         Vector2 direction = (target.position - transform.position).normalized;
         rb.velocity = direction * moveSpeed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("PontoFinal"))
+        {
+            LevelManager.instance.Adicionar();
+        }
     }
 }

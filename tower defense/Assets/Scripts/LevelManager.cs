@@ -18,6 +18,11 @@ public class LevelManager : MonoBehaviour
     // Moeda do jogador, utilizada para realizar compras ou ações no jogo
     public int currency;
 
+    public int contagemMorte = 0;
+
+    [SerializeField]
+    public GameObject gameOverPanel;
+
     // Awake: Inicializa a instância Singleton quando o objeto é ativado
     private void Awake()
     {
@@ -59,5 +64,12 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         Propaganda.instance.relogio = 0;
         Propaganda.instance.relogio2 = 0;
+        gameOverPanel.SetActive(true);
+        contagemMorte = 0;
+    }
+
+    public void Adicionar() 
+    {
+        contagemMorte++;
     }
 }

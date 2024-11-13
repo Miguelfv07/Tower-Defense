@@ -71,6 +71,13 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             Advertisement.Banner.Show(bannerAndroid);
     }
 
+    public void VoltarAoJogo()
+    {
+        Advertisement.Show(intertitial, this);
+        Advertisement.Banner.Hide();
+        
+    }
+
     public void Insterstitial()
     {
         
@@ -137,6 +144,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
             {
                 Time.timeScale = 1;
+                LevelManager.instance.gameOverPanel.SetActive(false);
 
             }
 
