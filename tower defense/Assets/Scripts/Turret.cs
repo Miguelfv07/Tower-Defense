@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using System;
 
 
@@ -87,10 +86,6 @@ public class Turret : MonoBehaviour, ITorre
 
 
 
-    // Desenha um círculo no editor que representa o alcance da torreta
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+
+
 }
