@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public float relogio2;
     public bool controladorInt;
     public bool podePular;
+
+    public delegate void valoresJogador(int valor);
+    public valoresJogador valores;
 
     private void Update()
     {
@@ -93,6 +97,12 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     {
         
     }
+    public void Reward()
+    {
+        Advertisement.Show(rewardedAndroid, this);
+        Advertisement.Banner.Hide();
+        Time.timeScale = 0;
+    }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
@@ -104,10 +114,15 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         
     }
 
+    public void AdicionarRecompensa(int valor)
+    {
+        LevelManager.instance.currency += 50;
+    }
+
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         Advertisement.Banner.Show(bannerAndroid);
-        if (placementId == interstitialPulavel || placementId == intertitial)
+        if (placementId == interstitialPulavel || placementId == intertitial || placementId == rewardedAndroid)
 
         {
 
@@ -121,6 +136,18 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
   
 
         }
+
+        if (placementId == rewardedAndroid )
+        {
+            if(showCompletionState == UnityAdsShowCompletionState.COMPLETED || showCompletionState == UnityAdsShowCompletionState.SKIPPED)
+            {
+                valores = AdicionarRecompensa;
+            }
+
+            valores(2);
+        }
+
+
 
     }
 
