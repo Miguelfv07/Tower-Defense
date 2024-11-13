@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Classe LevelManager gerencia uma parte do caminho dos inimigos, ponto de spawn inicial e a moeda do jogador.
 
@@ -33,6 +34,12 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         currency = 250;
+        Propaganda.instance.reward = jhhkf;
+    }
+
+    void jhhkf()
+    {
+        gameOverPanel.SetActive(true);
     }
 
     // Aumenta a quantidade de moeda do jogador
@@ -71,5 +78,14 @@ public class LevelManager : MonoBehaviour
     public void Adicionar() 
     {
         contagemMorte++;
+    }
+
+    public void Reiniciar() 
+    {
+        gameOverPanel.SetActive(false);
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
+        
+        
     }
 }

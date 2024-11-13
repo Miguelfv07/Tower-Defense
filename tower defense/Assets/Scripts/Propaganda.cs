@@ -20,8 +20,9 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public static Propaganda instance;
    
 
-    public delegate void valoresJogador(int valor);
-    public valoresJogador valores;
+
+    public delegate void rwd();
+    public rwd reward;
 
     private void Awake()
     {
@@ -73,9 +74,10 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void VoltarAoJogo()
     {
-        Advertisement.Show(intertitial, this);
+        Advertisement.Show(rewardedAndroid, this) ;
         Advertisement.Banner.Hide();
-        
+        reward = Reviver;
+
     }
 
     public void Insterstitial()
@@ -107,6 +109,16 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         }
     }
 
+    public void Reviver()
+    {
+        LevelManager.instance.gameOverPanel.SetActive(false);
+    }
+
+    public void GanharDinheiro()
+    {
+        LevelManager.instance.currency += 50;
+    }
+
     public void OnInitializationComplete()
     {
         
@@ -116,6 +128,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         Advertisement.Show(rewardedAndroid, this);
         Advertisement.Banner.Hide();
         Time.timeScale = 0;
+        reward = GanharDinheiro;
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
@@ -128,10 +141,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         
     }
 
-    public void AdicionarRecompensa(int valor)
-    {
-        LevelManager.instance.currency += 50;
-    }
+
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
@@ -144,7 +154,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
             {
                 Time.timeScale = 1;
-                LevelManager.instance.gameOverPanel.SetActive(false);
+                
 
             }
 
@@ -156,10 +166,9 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         {
             if(showCompletionState == UnityAdsShowCompletionState.COMPLETED || showCompletionState == UnityAdsShowCompletionState.SKIPPED)
             {
-                valores = AdicionarRecompensa;
+                reward();
             }
 
-            valores(2);
         }
 
 
