@@ -73,6 +73,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
                 relogio2 = 0;
                 Time.timeScale = 0;
                 Advertisement.Banner.Hide();
+                podePular = false;
                
             }
             else
@@ -82,6 +83,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
                 relogio2 = 0;
                 Time.timeScale = 0;
                 Advertisement.Banner.Hide();
+                podePular = true;
                 
             }
         }
@@ -105,7 +107,7 @@ public class Propaganda : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         Advertisement.Banner.Show(bannerAndroid);
-        if (placementId == interstitialPulavel)
+        if (placementId == interstitialPulavel || placementId == intertitial)
 
         {
 
