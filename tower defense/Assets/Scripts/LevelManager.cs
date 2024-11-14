@@ -34,10 +34,10 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         currency = 250;
-        Propaganda.instance.reward = jhhkf;
+        Propaganda.instance.reward = ContinuarJogo;
     }
 
-    void jhhkf()
+    void ContinuarJogo()
     {
         gameOverPanel.SetActive(true);
     }
